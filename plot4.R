@@ -41,7 +41,7 @@ par(mfcol=c(2,2))
 par(mar=c(4,4,2,2))
 plot(df$Time,df$Global_active_power,
      xlab="",ylab="Global Active Power", 
-     type ="l")
+     type ="l") 
 
 ## Draw plot3.png on bottom left
 par(mar=c(4,4,2,2))
@@ -59,7 +59,13 @@ legend("topright",
 par(mar=c(4,4,2,2))
 plot(df$Time,df$Voltage,
      xlab="datetime", ylab="Voltage", 
-     type ="l")
+     type ="l",
+     ## suppress y axis for manual ticks
+     yaxt = "n")
+## Draw y axis with manual ticks and labels
+ticks = c(234,236,238,240,242,244,246)
+axis(side=2,at = ticks, 
+     labels=c(234,NA,238,NA,242,NA,246) )
 
 ## Draw Global_reactive_power on bottom right
 par(mar=c(4,4,2,2))
